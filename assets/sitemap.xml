@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ntcofficial.github.io/</loc>
+    <lastmod>2025-03-09T04:43:07+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://ntcofficial.github.io/games.html</loc>
+    <lastmod>2025-03-09T04:43:07+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ntcofficial.github.io/about.html</loc>
+    <lastmod>2025-03-09T04:43:07+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ntcofficial.github.io/alpha.html</loc>
+    <lastmod>2025-03-09T04:43:07+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://ntcofficial.github.io/index.html</loc>
+    <lastmod>2025-03-09T04:43:07+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+</urlset>
