@@ -1,0 +1,14 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #0f0f0f;
+  color: #f1f1f1;
+  text-align: center;
+}
+.video {
+  margin: 2em auto;
+  max-width: 600px;
+  background: #1a1a1a;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 0 10px #0006;
+}
