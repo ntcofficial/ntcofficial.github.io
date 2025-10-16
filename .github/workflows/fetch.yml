@@ -1,0 +1,61 @@
+name: Update Unstable SMP Feed
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install xml2js node-fetch@3
+
+      - name: Fetch YouTube RSS feeds
+        run: |
+          node -e "
+          import fetch from 'node-fetch';
+          import { parseStringPromise } from 'xml2js';
+          import fs from 'fs';
+          const channels = JSON.parse(fs.readFileSync('unstable-smp-compiled/channels.json'));
+          async function getFeed(id,name){
+            const res = await fetch(\`https://www.youtube.com/feeds/videos.xml?channel_id=\${id}\`);
+            const xml = await res.text();
+            const parsed = await parseStringPromise(xml);
+            const entries = parsed.feed.entry||[];
+            return entries.map(e=>({
+              title: e.title[0],
+              videoId: e['yt:videoId'][0],
+              published: e.published[0],
+              channel: name
+            }));
+          }
+          const all = [];
+          (async()=>{
+            for(const ch of channels){
+              console.log('fetching', ch.name);
+              const vids = await getFeed(ch.id,ch.name);
+              all.push(...vids);
+            }
+            all.sort((a,b)=> new Date(a.published) - new Date(b.published));
+            fs.writeFileSync('unstable-smp-compiled/data.json', JSON.stringify(all,null,2));
+            console.log('✅ data.json written');
+          })();
+          "
+
+      - name: Commit and push
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add unstable-smp-compiled/data.json
+          git commit -m "update data.json" || echo "no changes"
+          git push
