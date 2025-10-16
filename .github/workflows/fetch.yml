@@ -26,7 +26,7 @@ jobs:
           import fetch from 'node-fetch';
           import { parseStringPromise } from 'xml2js';
           import fs from 'fs';
-          const channels = JSON.parse(fs.readFileSync('-compile/channels.json'));
+          const channels = JSON.parse(fs.readFileSync('unstable-compiled/channels.json'));
           async function getFeed(id,name){
             const res = await fetch(\`https://www.youtube.com/feeds/videos.xml?channel_id=\${id}\`);
             const xml = await res.text();
