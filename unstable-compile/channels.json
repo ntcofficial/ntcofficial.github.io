@@ -1,4 +1,4 @@
-{
+[
   { "id": "UCk2uxbWi5py_iJXaEsh2YRA", "name": "Spoke" },
   { "id": "UCPLMPHT-d8GZOqL_AHJFdQQ", "name": "Parrot" },
   { "id": "UCkzzNLnuM-VsATWC53ehwOQ", "name": "Wemmbu" },
@@ -11,5 +11,5 @@
   { "id": "UC5kLlxFR6-tbQfPvJSPbKiQ", "name": "Ferre" },
   { "id": "UCRSS1SWypicfdqE8x_7CP0g", "name": "Jaden Man" },
   { "id": "UCiytbL7aJQ_ak05CWfnOqgQ", "name": "Mapicc" },
-  { "id": "UCzguD6UiqYaeMDQBbuEUyWw", "name": "TheobaldTheBird" },
-}
+  { "id": "UCzguD6UiqYaeMDQBbuEUyWw", "name": "TheobaldTheBird" }
+]
