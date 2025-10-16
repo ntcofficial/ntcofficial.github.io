@@ -26,7 +26,7 @@ jobs:
           import fetch from 'node-fetch';
           import { parseStringPromise } from 'xml2js';
           import fs from 'fs';
-          const channels = JSON.parse(fs.readFileSync('unstable-compile/channels.json'));
+          const channels = JSON.parse(fs.readFileSync('-compile/channels.json'));
           async function getFeed(id,name){
             const res = await fetch(\`https://www.youtube.com/feeds/videos.xml?channel_id=\${id}\`);
             const xml = await res.text();
@@ -47,7 +47,7 @@ jobs:
               all.push(...vids);
             }
             all.sort((a,b)=> new Date(a.published) - new Date(b.published));
-            fs.writeFileSync('unstable-smp-compiled/data.json', JSON.stringify(all,null,2));
+            fs.writeFileSync('unstable-compiled/data.json', JSON.stringify(all,null,2));
             console.log('✅ data.json written');
           })();
           "
