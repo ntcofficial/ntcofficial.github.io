@@ -1,4 +1,4 @@
-name: Update Unstable SMP Feed
+name: no im the biggest bird
 
 on:
   schedule:
@@ -9,18 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: grab repo by neck
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: node.js setup
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install dependencies
+      - name: rpm go brrrr
         run: npm install xml2js node-fetch@3
 
-      - name: Fetch YouTube RSS feeds
+      - name: get parrot personal info
         run: |
           node -e "
           import fetch from 'node-fetch';
@@ -52,10 +52,10 @@ jobs:
           })();
           "
 
-      - name: Commit and push
+      - name: final blow, SHARINGANNNN
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          git add unstable-smp-compiled/data.json
+          git add unstable-compile/data.json
           git commit -m "update data.json" || echo "no changes"
           git push
