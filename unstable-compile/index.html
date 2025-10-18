@@ -1,14 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Unstable SMP Unofficial Library | Next Tech Creations</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <h1>Unstable SMP</h1>
-  <p>All Unstable SMP videos in upload order 💥</p>
-  <div id="videos">Loading...</div>
+  <header>
+    <h1>Unstable SMP Unofficial Library</h1>
+    <p class="hint">newest first • click a thumbnail to play • load more below</p>
+  </header>
+
+  <main>
+    <div id="grid" class="grid">loading...</div>
+    <div class="controls">
+      <button id="loadMore" class="btn">load more</button>
+    </div>
+  </main>
+
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-inner">
+      <button id="closeModal" class="close">✕</button>
+      <div id="playerWrap" class="player-wrap"></div>
+      <div id="playerTitle" class="player-title"></div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
