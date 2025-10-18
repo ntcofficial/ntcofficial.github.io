@@ -1,14 +1,71 @@
-body {
-  font-family: system-ui, sans-serif;
-  background: #0f0f0f;
-  color: #f1f1f1;
-  text-align: center;
+:root{
+  --bg:#0f1115;
+  --card:#14181c;
+  --muted:#9aa3ad;
+  --accent:#ff6b6b;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
-.video {
-  margin: 2em auto;
-  max-width: 600px;
-  background: #1a1a1a;
-  padding: 1em;
-  border-radius: 1em;
-  box-shadow: 0 0 10px #0006;
+
+*{
+  box-sizing:border-box
 }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+}
+header{padding:28px 18px 6px;text-align:center}
+h1{margin:0;font-size:20px;letter-spacing:0.6px;text-transform:lowercase}
+.hint{color:var(--muted);margin-top:6px;font-size:13px}
+main{padding:14px 12px 48px;max-width:1100px;margin:0 auto}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  gap:14px;
+  margin-top:16px;
+}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:10px;
+  overflow:hidden;
+  transition:transform .14s ease;
+}
+.card:hover{transform:translateY(-6px)}
+.thumb{
+  width:100%;
+  aspect-ratio:16/9;
+  border-radius:10px;
+  background:#0b0b0b center/cover no-repeat;
+  display:block;
+}
+.meta{padding-top:8px}
+.title{font-size:14px;line-height:1.2;margin:0 0 6px;color:#fff}
+.chinfo{color:var(--muted);font-size:12px}
+
+.controls{text-align:center;margin-top:18px}
+.btn{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.04);
+  color:#eaf2ff;padding:10px 16px;border-radius:999px;
+  cursor:pointer;font-weight:600;letter-spacing:0.4px;
+}
+.btn:active{transform:translateY(1px)}
+
+.modal{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.6);z-index:50;padding:20px;
+}
+.hidden{display:none}
+.modal-inner{width:100%;max-width:960px;background:var(--card);padding:12px;border-radius:12px;position:relative}
+.close{position:absolute;right:12px;top:12px;background:transparent;border:none;color:#fff;font-size:20px;cursor:pointer}
+.player-wrap{width:100%;aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden}
+.player-title{margin-top:8px;padding:6px 10px;color:var(--muted);font-size:13px}
+.skeleton{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04), rgba(255,255,255,0.02));height:140px;border-radius:10px}
